@@ -8,6 +8,10 @@ module.exports = function parallel(fns, context, callback) {
     callback = noop
   }
 
+  if (!fns.length) {
+    return callback(null, [])
+  }
+
   var pending = fns.length
   var finished = false
   var results = new Array(pending)
@@ -30,10 +34,7 @@ module.exports = function parallel(fns, context, callback) {
 
       results[i] = result
 
-      if (--pending) return;
-
-      callback(null, results)
-      finished = true
+      if (!--pending) callback(null, results);
     }
   }
 }
