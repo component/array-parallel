@@ -10,16 +10,29 @@ module.exports = function parallel(fns, context, callback) {
 
   var pending = fns.length
   var finished = false
+  var results = new Array(pending)
 
-  fns.forEach(context ? function (fn) {
-    fn.call(context, maybeDone)
+  fns.forEach(context ? function (fn, i) {
+    fn.call(context, maybeDone(i))
   } : function (fn) {
-    fn(maybeDone)
+    fn(maybeDone(i))
   })
 
-  function maybeDone(err) {
-    if (!finished && (err || !--pending)) {
-      callback(err)
+  function maybeDone(i) {
+    return function (err, result) {
+      if (finished) return;
+
+      if (err) {
+        callback(err, results)
+        finished = true
+        return
+      }
+
+      results[i] = result
+
+      if (--pending) return;
+
+      callback(null, results)
       finished = true
     }
   }
