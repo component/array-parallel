@@ -1,0 +1,9 @@
+{
+  "name": "array-parallel",
+  "description": "Call an array of asynchronous functions in parallel",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}
