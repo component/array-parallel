@@ -18,7 +18,7 @@ module.exports = function parallel(fns, context, callback) {
 
   fns.forEach(context ? function (fn, i) {
     fn.call(context, maybeDone(i))
-  } : function (fn) {
+  } : function (fn, i) {
     fn(maybeDone(i))
   })
 
