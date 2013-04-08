@@ -1,18 +1,16 @@
 module.exports = function parallel(fns, context, callback) {
-  if (!callback && typeof context === 'function') {
-    callback = context
-    content = null
-  }
-
   if (!callback) {
-    callback = noop
-  }
-
-  if (!fns.length) {
-    return callback(null, [])
+    if (typeof context === 'function') {
+      callback = context
+      context = null
+    } else {
+      callback = noop
+    }
   }
 
   var pending = fns.length
+  if (!pending) return callback(null, []);
+
   var finished = false
   var results = new Array(pending)
 
