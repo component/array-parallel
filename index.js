@@ -8,7 +8,7 @@ module.exports = function parallel(fns, context, callback) {
     }
   }
 
-  var pending = fns.length
+  var pending = fns && fns.length
   if (!pending) return callback(null, []);
 
   var finished = false
