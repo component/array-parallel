@@ -1,7 +1,7 @@
 {
   "name": "array-parallel",
   "description": "Call an array of asynchronous functions in parallel",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "scripts": {
     "test": "node test"
   },
@@ -19,5 +19,5 @@
     "url": "https://github.com/jonathanong/array-parallel/issues",
     "email": "me@jongleberry.com"
   },
-  "license": "WTFPL"
+  "license": "MIT"
 }
