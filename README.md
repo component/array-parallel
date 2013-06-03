@@ -20,7 +20,7 @@ parallel([
 
 #### fns
 
-`fns` is an array of functions to call in series.
+`fns` is an array of functions to call in parallel.
 The argument signature should be:
 
 ```js
