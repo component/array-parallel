@@ -1,4 +1,4 @@
-# Array Series [![Build Status](https://travis-ci.org/jonathanong/array-parallel.png)](https://travis-ci.org/jonathanong/array-parallel)
+# Array Series [![Build Status](https://travis-ci.org/component/array-parallel.png)](https://travis-ci.org/component/array-parallel)
 
 Call an array of asynchronous functions in parallel
 
