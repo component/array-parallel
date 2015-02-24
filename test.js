@@ -1,5 +1,9 @@
 var assert = require('assert')
-var parallel = require('./')
+try {
+  var parallel = require('array-parallel')
+} catch (e) {
+  var parallel = require('./')
+}
 
 var a, b, c
 parallel([
@@ -57,6 +61,6 @@ parallel([function (done) {
   done()
 }])
 
-process.nextTick(function () {
+setTimeout(function () {
   assert.equal(f, true)
 })

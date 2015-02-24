@@ -14,11 +14,11 @@ module.exports = function parallel(fns, context, callback) {
   var finished = false
   var results = new Array(pending)
 
-  fns.forEach(context ? function (fn, i) {
+
+  for (var i = 0, l = fns.length; i < l; i++) {
+    var fn = fns[i]
     fn.call(context, maybeDone(i))
-  } : function (fn, i) {
-    fn(maybeDone(i))
-  })
+  }
 
   function maybeDone(i) {
     return function (err, result) {
